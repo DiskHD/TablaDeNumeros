@@ -1,4 +1,5 @@
 package tabladenumeros;
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
@@ -11,10 +12,12 @@ public class TablaDeNumeros {
     public static void main(String[] args) {
         // TODO code application logic here
         JFrame frame =new JFrame("Mi Aplicación");
+        //frame.setSize(1000, 3000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         //frame.setLayout(new FlowLayout());
-        JPanel panel = new JPanel(new GridLayout(4, 3));
+        JPanel panel = new JPanel(new GridLayout(3, 3));
+        //frame.add(panel);
         
         //Botones
         JButton boton0=new JButton("0");
@@ -36,20 +39,32 @@ public class TablaDeNumeros {
         JButton boton8=new JButton("8");
         panel.add(boton8);
         
-        JLabel label1=new JLabel("HOla");
-        panel.add(label1);
-        JLabel label2=new JLabel("Hola2");
-        panel.add(label2);
-        JLabel label3=new JLabel("Hola3");
-        panel.add(label3);
+        JPanel panelInferior = new JPanel(new GridLayout(1, 3));
+        //frame.add(panelInferior);
         
-        boton0.addActionListener(new ActionListener(){
+        JLabel label1=new JLabel("HOla");
+        panelInferior.add(label1);
+        JLabel label2=new JLabel("Hola2");
+        panelInferior.add(label2);
+        JLabel label3=new JLabel("Hola3");
+        panelInferior.add(label3);
+        
+        /*boton0.addActionListener(new ActionListener(){
+            //@Override
+            int b0=0;
             @Override
             public void actionPerformed(ActionEvent e){
-                System.out.println("Hola mundo");
+                b0++;
+                System.out.println("agregado2");
+                label1.setText("Boton 0: "+b0+" Clicks ");
+                System.out.println("agregado");
             }
-        });
+        });*/
         
+        
+        
+        frame.getContentPane().add(panel,BorderLayout.CENTER);
+        frame.getContentPane().add(panelInferior,BorderLayout.SOUTH);
         
         frame.getContentPane().add(panel);
         
